@@ -2,45 +2,49 @@ using UnityEditor;
 using UnityEditor.TerrainTools;
 using UnityEngine;
 
-[CustomEditor(typeof(TalesManager))]
-public class TalesManagerEditor : Editor
+namespace TalesEngine
 {
-	EGameLanguage _selectedLanguage;
 
-	#region UNITY Methods
-
-	///////////////////////////////////
-	/// EDITOR Methods
-	///////////////////////////////////
-
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(TalesManager))]
+	public class TalesManagerEditor : Editor
 	{
-		base.OnInspectorGUI();
+		EGameLanguage _selectedLanguage;
 
-		TalesManager tgtScript = (TalesManager)target;
+		#region UNITY Methods
 
-		Rect areaRect = EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-		EditorGUI.DrawRect(areaRect, new Color(75f / 255f, 75f / 255f, 75f / 255f));
+		///////////////////////////////////
+		/// EDITOR Methods
+		///////////////////////////////////
 
-		GUIStyle labelStyle = new GUIStyle();
-		labelStyle.fontStyle = FontStyle.Bold;
-		labelStyle.fontSize = 16;
-		labelStyle.normal.textColor = new Color(1f, 174f / 255f, 0f);
-
-		Rect LabelRect = new Rect(areaRect.position.x, areaRect.position.y, areaRect.width, 25f);
-		EditorGUI.DrawRect(LabelRect, new Color(35f / 255f, 35f / 255f, 35f / 255f));
-
-		EditorGUILayout.LabelField("Tools", labelStyle);
-
-		_selectedLanguage = (EGameLanguage)EditorGUILayout.EnumPopup("New Language", _selectedLanguage);
-
-		if(GUILayout.Button("Switch Language"))
+		public override void OnInspectorGUI()
 		{
-			tgtScript.OnLanguageChanged(_selectedLanguage);
+			base.OnInspectorGUI();
+
+			TalesManager tgtScript = (TalesManager)target;
+
+			Rect areaRect = EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+			EditorGUI.DrawRect(areaRect, new Color(75f / 255f, 75f / 255f, 75f / 255f));
+
+			GUIStyle labelStyle = new GUIStyle();
+			labelStyle.fontStyle = FontStyle.Bold;
+			labelStyle.fontSize = 14;
+			labelStyle.normal.textColor = new Color(1f, 174f / 255f, 0f);
+
+			Rect LabelRect = new Rect(areaRect.position.x, areaRect.position.y, areaRect.width, 20f);
+			EditorGUI.DrawRect(LabelRect, new Color(35f / 255f, 35f / 255f, 35f / 255f));
+
+			EditorGUILayout.LabelField("Tools", labelStyle);
+
+			_selectedLanguage = (EGameLanguage)EditorGUILayout.EnumPopup("New Language", _selectedLanguage);
+
+			if(GUILayout.Button("Switch Language"))
+			{
+				tgtScript.OnLanguageChanged(_selectedLanguage);
+			}
+
+			EditorGUILayout.EndVertical();
 		}
 
-		EditorGUILayout.EndVertical();
+		#endregion
 	}
-
-	#endregion
 }

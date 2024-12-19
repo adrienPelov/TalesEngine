@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public interface ILanguageObserver
+namespace TalesEngine
 {
-    public void OnLanguageChanged(EGameLanguage _newLanguage);
+
+	public interface ILanguageObserver
+	{
+		public void OnLanguageChanged(EGameLanguage _newLanguage);
+	}
 }
