@@ -14,6 +14,7 @@ namespace TalesEngine
 		private static TalesManager _instance;
 		public static TalesManager Instance => _instance;
 
+		[Header("Cached Variables")]
 		[SerializeField]
 		private EGameLanguage _currentLanguage;
 		public EGameLanguage CurrentLanguage => _currentLanguage;

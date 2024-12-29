@@ -34,7 +34,6 @@ namespace TalesEngine
 			EditorGUI.DrawRect(LabelRect, new Color(35f / 255f, 35f / 255f, 35f / 255f));
 
 			EditorGUILayout.LabelField("Tools", labelStyle);
-
 			_selectedLanguage = (EGameLanguage)EditorGUILayout.EnumPopup("New Language", _selectedLanguage);
 
 			if(GUILayout.Button("Switch Language"))
