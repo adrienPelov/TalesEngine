@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TalesEngine
 {
-	public enum GameTestBehaviour
+	public enum EGameTestBehaviour
 	{
 		AND = 0,
 		OR = 1,
@@ -15,8 +15,8 @@ namespace TalesEngine
 	public class GameTest
 	{
 		[SerializeField]
-		private GameTestBehaviour _behaviour;
-		public GameTestBehaviour Behaviour => _behaviour;
+		private EGameTestBehaviour _behaviour;
+		public EGameTestBehaviour Behaviour => _behaviour;
 		[SerializeField]
 		private List<GameTestCondition> _conditions;
 		public List<GameTestCondition> Conditions => _conditions;
