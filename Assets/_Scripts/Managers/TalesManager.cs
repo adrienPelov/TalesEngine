@@ -41,6 +41,11 @@ namespace TalesEngine
 			}
 		}
 
+		private void Start()
+		{
+			StartTale();
+		}
+
 		void Update()
 		{
 
@@ -73,6 +78,11 @@ namespace TalesEngine
 			{
 				observer.OnLanguageChanged(newLanguage);
 			}
+		}
+
+		private void StartTale()
+		{
+			CharactersManager.Instance.InitPlayerCharacters();
 		}
 
 		#endregion

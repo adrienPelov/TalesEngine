@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace TalesEngine
 {
-	//[System.Serializable]
-	public class Attribute : MonoBehaviour
+	[System.Serializable]
+	public class Attribute
 	{
 		[Header("Settings")]
 		[SerializeField]
@@ -26,10 +26,10 @@ namespace TalesEngine
 		/// Attribute Methods
 		///////////////////////////////////
 
-		public void InitAttribute(AttributeAsset attributeAsset)
+		public void InitAttribute(AttributeAsset attributeAsset, int baseValue)
 		{
 			_attributeAsset = attributeAsset;
-			_value = _attributeAsset.ValueBase;
+			_value = baseValue;
 		}
 
 		#endregion

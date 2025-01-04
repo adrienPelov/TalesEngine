@@ -5,15 +5,13 @@ using TMPro;
 
 namespace TalesEngine
 {
-	[CustomEditor(typeof(Attribute))]
-	[CanEditMultipleObjects]
 	public class AttributeEditor : Editor
 	{
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
 
-			Attribute targetScript = (Attribute)this.target;
+			//Attribute targetScript = (Attribute)this.target;
 
 			// ROOT - Start
 			Rect areaRect = EditorGUILayout.BeginVertical(EditorStyles.helpBox);
@@ -47,7 +45,7 @@ namespace TalesEngine
 			EditorGUILayout.LabelField("Variables", styleTitle);
 			EditorGUILayout.EndVertical();
 
-			AttributeAsset _asset = targetScript.AttributeAsset;
+			/*AttributeAsset _asset = targetScript.AttributeAsset;
 			_asset = (AttributeAsset)EditorGUILayout.ObjectField(_asset, typeof(AttributeAsset), false);
 
 			SerializedProperty propValue = serializedObject.FindProperty("_value");
@@ -56,7 +54,7 @@ namespace TalesEngine
 			EditorGUILayout.LabelField(propValue.intValue.ToString(), styleTextNormal, GUILayout.MaxWidth(styleTextNormWidth));
 			EditorGUILayout.EndHorizontal();
 
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("_modifiers"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("_modifiers"));*/
 
 			// Tools
 			/*Rect LbToolsRect = EditorGUILayout.BeginVertical(EditorStyles.label);

@@ -17,8 +17,5 @@ namespace TalesEngine
 		[SerializeField]
 		private int _valueMax;
 		public int ValueMax => _valueMax;
-		[SerializeField]
-		private int _valueBase;
-		public int ValueBase => _valueBase;
 	}
 }

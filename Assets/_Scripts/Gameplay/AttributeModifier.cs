@@ -58,7 +58,7 @@ namespace TalesEngine
 		/// Attribute Modifier Methods
 		///////////////////////////////////
 
-		private void InitModifier()
+		public virtual void InitModifier()
 		{
 			_duration = _durationBase;
 		}
