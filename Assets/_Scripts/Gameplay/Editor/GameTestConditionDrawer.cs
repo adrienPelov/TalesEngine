@@ -22,7 +22,7 @@ namespace TalesEngine
 			styleArrayElt.fontStyle = FontStyle.Bold;
 			styleArrayElt.fontSize = 12;
 			styleArrayElt.normal.textColor = Color.white;
-			Color eltColor = new Color(100f / 255f, 130f / 255f, 160f / 255f);
+			Color eltColor = new Color(100f / 255f, 130f / 255f, 160f / 255f, 0.25f);
 
 			EditorGUI.DrawRect(position, eltColor);
 			string prefixLabel = label.text.Contains("Element") ? "Cond[" + label.text[label.text.Length - 1] + "]" : label.text;
