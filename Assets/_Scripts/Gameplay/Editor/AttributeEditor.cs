@@ -11,6 +11,8 @@ namespace TalesEngine
 	{
 		public override void OnInspectorGUI()
 		{
+			serializedObject.Update();
+
 			Attribute targetScript = (Attribute)this.target;
 
 			// ROOT - Start
@@ -64,6 +66,8 @@ namespace TalesEngine
 
 			// ROOT - End
 			EditorGUILayout.EndVertical();
+
+			serializedObject.ApplyModifiedProperties();
 		}
 	}
 }

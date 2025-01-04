@@ -20,6 +20,8 @@ public class AttributeModifierEditor : Editor
 
 	public override void OnInspectorGUI()
 	{
+		serializedObject.Update();
+
 		_targetScript = (AttributeModifier)target;
 
 		// ROOT - Start
@@ -88,7 +90,7 @@ public class AttributeModifierEditor : Editor
 				SerializedProperty propValue = serializedObject.FindProperty("_value");
 				if(propValue != null)
 				{
-					propValue.floatValue = DrawFloatProperty("Value: ", _targetScript.Value);
+					propValue.floatValue = DrawFloatProperty("Value: ", propValue.floatValue);
 				}
 			}
 			else
@@ -97,7 +99,7 @@ public class AttributeModifierEditor : Editor
 				SerializedProperty propMultiplier = serializedObject.FindProperty("_multiplier");
 				if(propMultiplier != null)
 				{
-					propMultiplier.floatValue = DrawFloatProperty("Multiplier: ", _targetScript.Multiplier);
+					propMultiplier.floatValue = DrawFloatProperty("Multiplier: ", propMultiplier.floatValue);
 				}
 			}
 		}
