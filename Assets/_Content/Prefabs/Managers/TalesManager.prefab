@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3290916936116385761}
   - component: {fileID: 4190912132732814235}
   - component: {fileID: 5960999839637804160}
+  - component: {fileID: 7757789244880103502}
   m_Layer: 0
   m_Name: TalesManager
   m_TagString: Untagged
@@ -30,8 +31,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6254604608603526424}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4190912132732814235
@@ -60,36 +60,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attributesFolderPath: Assets/_Content/ScriptableAssets/Attributes
-  _attributesRoot: {fileID: 6254604608603526424}
-  _attributes: []
---- !u!1 &3215947603134544223
-GameObject:
+  _attributeAssets: []
+--- !u!114 &7757789244880103502
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6254604608603526424}
-  m_Layer: 0
-  m_Name: Attributes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6254604608603526424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215947603134544223}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3290916936116385761}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 92644976714661138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436fb33bf9f4e4428ec70da08b8be76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
