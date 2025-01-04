@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab681b89344f6d74aa799bdb5017acd6, type: 3}
+  m_Name: CA_PersoTest_01
+  m_EditorClassIdentifier: 
+  _initialAttributes:
+  - AttributeAsset: {fileID: 11400000, guid: fff15a9bf32701b4f918b786539dd6c7, type: 2}
+    BaseValue: 1
+  - AttributeAsset: {fileID: 11400000, guid: 6ff237d1f81ec93488a13bee55c07d65, type: 2}
+    BaseValue: 1
+  - AttributeAsset: {fileID: 11400000, guid: 0e4fd83d42d93154da7090319ed2c874, type: 2}
+    BaseValue: 1
+  - AttributeAsset: {fileID: 11400000, guid: 517942a16ff397744bdbc9aa832231ae, type: 2}
+    BaseValue: 1
