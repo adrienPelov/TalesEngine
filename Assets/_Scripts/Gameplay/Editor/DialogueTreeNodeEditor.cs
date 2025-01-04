@@ -14,22 +14,6 @@ namespace TalesEngine
 		/// UNITY Methods
 		///////////////////////////////////
 
-		public override VisualElement CreateInspectorGUI()
-		{
-			Debug.LogWarning("[DTN editor] Create InspectorGUI");
-
-			serializedObject.Update();
-
-			VisualElement rootContainer = new VisualElement();
-			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditionSolo")));
-			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditions")));
-			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_tests")));
-
-			serializedObject.ApplyModifiedProperties();
-
-			return rootContainer;
-		}
-
 		/*public override void OnInspectorGUI()
 		{
 			Debug.LogWarning("[DTN editor] Create InspectorGUI");
@@ -83,6 +67,32 @@ namespace TalesEngine
 
 			EditorGUILayout.EndVertical();
 		}*/
+
+		public override VisualElement CreateInspectorGUI()
+		{
+			//Debug.LogWarning("[DTN editor] Create InspectorGUI");
+
+			serializedObject.Update();
+
+			VisualElement rootContainer = new VisualElement();
+			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditionSolo")));
+			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditions")));
+			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_tests")));
+			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_dialogIntro")));
+
+			serializedObject.ApplyModifiedProperties();
+
+			return rootContainer;
+		}
+
+		#endregion
+
+		#region DialogueTreeNodeEditor Methods
+
+		///////////////////////////////////
+		/// DialogueTreeNodeEditor Methods
+		///////////////////////////////////
+
 
 		#endregion
 	}

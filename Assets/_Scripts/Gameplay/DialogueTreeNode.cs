@@ -1,43 +1,55 @@
 using UnityEngine;
 using System.Collections.Generic;
-using TalesEngine;
+using System;
 
-public class DialogueTreeNode : MonoBehaviour
+namespace TalesEngine
 {
-	[SerializeField]
-	private GameTestCondition _conditionSolo;
-	public GameTestCondition ConditionSolo => _conditionSolo;
-	[SerializeField]
-	private GameTestCondition[] _conditions;
-	public GameTestCondition[] Conditions => _conditions;
-	[SerializeField]
-	private GameTest[] _tests;
-	public GameTest[] Tests => _tests;
+	[Serializable]
+	public struct FConditionalDialog
+	{
+		public DialogueTreeNode NextNode;
+		public GameTest Test;
+	}
+	public class DialogueTreeNode : MonoBehaviour
+	{
+		/*[SerializeField]
+		private GameTestCondition _conditionSolo;
+		public GameTestCondition ConditionSolo => _conditionSolo;*/
+		/*[SerializeField]
+		private GameTestCondition[] _conditions;
+		public GameTestCondition[] Conditions => _conditions;*/
+		/*[SerializeField]
+		private GameTest[] _tests;
+		public GameTest[] Tests => _tests;*/
 
-	#region UNITY Methods
+		[SerializeField]
+		private FConditionalDialog _dialogIntro;
 
-	///////////////////////////////////
-	/// UNITY Methods
-	///////////////////////////////////
+		#region UNITY Methods
 
-	void Start()
-    {
-        
-    }
+		///////////////////////////////////
+		/// UNITY Methods
+		///////////////////////////////////
 
-    void Update()
-    {
-        
-    }
+		void Start()
+		{
 
-	#endregion
+		}
 
-	#region DialogueTreeNode Methods
+		void Update()
+		{
 
-	///////////////////////////////////
-	/// DialogueTreeNode Methods
-	///////////////////////////////////
+		}
+
+		#endregion
+
+		#region DialogueTreeNode Methods
+
+		///////////////////////////////////
+		/// DialogueTreeNode Methods
+		///////////////////////////////////
 
 
-	#endregion
+		#endregion
+	}
 }

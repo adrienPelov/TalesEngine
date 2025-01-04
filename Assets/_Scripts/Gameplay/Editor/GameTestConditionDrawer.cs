@@ -34,6 +34,11 @@ namespace TalesEngine
 
 			if(propTarget.enumValueIndex != (int)EGameTestConditionTarget.None)
 			{
+				if(propTarget.enumValueIndex == (int)EGameTestConditionTarget.Attribute)
+				{
+					SerializedProperty propAttribute = property.FindPropertyRelative("_attrAssetRef");
+					EditorGUILayout.PropertyField(propAttribute);
+				}
 				SerializedProperty propTreshold = property.FindPropertyRelative("_threshold");
 				EditorGUILayout.PropertyField(propTreshold, new GUIContent("Treshold: "));
 				SerializedProperty propTresholdValue = property.FindPropertyRelative("_thresholdValue");
