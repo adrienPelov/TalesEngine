@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3290916936116385761}
   - component: {fileID: 4190912132732814235}
   - component: {fileID: 5960999839637804160}
+  - component: {fileID: 1618592260561758774}
   - component: {fileID: 7757789244880103502}
   m_Layer: 0
   m_Name: TalesManager
@@ -61,6 +62,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attributesFolderPath: Assets/_Content/ScriptableAssets/Attributes
   _attributeAssets: []
+--- !u!114 &1618592260561758774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92644976714661138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671ab54d08406844198830b282c6912b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventsFolderPath: Assets/_Content/ScriptableAssets/Events
+  _eventsAssets: []
+  _eventsValues: 
 --- !u!114 &7757789244880103502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d436fb33bf9f4e4428ec70da08b8be76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DBG_InitalCharacters: []
+  DBG_InitalCharactersRoot: {fileID: 0}
+  _playerCharacters: []
+  _npCharacters: []

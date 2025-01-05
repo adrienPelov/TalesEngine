@@ -8,7 +8,7 @@ namespace TalesEngine
 		
 	}
 
-	public class AttributeModifier : MonoBehaviour
+	public class AttributeModifier
 	{
 		[Header("Settings")]
 		[SerializeField]
@@ -33,24 +33,6 @@ namespace TalesEngine
 		[SerializeField]
 		private float _duration;
 		public float Duration => _duration;
-
-		#region UNITY Methods
-
-		///////////////////////////////////
-		/// UNITY Methods
-		///////////////////////////////////
-
-		void Start()
-		{
-			InitModifier();
-		}
-
-		void Update()
-		{
-
-		}
-
-		#endregion
 
 		#region Attribute Modifier Methods
 

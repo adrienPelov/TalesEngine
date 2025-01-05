@@ -34,7 +34,7 @@ namespace TalesEngine
 			}
 			else
 			{
-				Debug.LogWarning("[AttributesManager] Existing instance found on: " + this.gameObject.name);
+				Debug.LogWarning("[AttributesManager] Found duplicate instance on: " + this.gameObject.name);
 				Destroy(this);
 			}
 		}

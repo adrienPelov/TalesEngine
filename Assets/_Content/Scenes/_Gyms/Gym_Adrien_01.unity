@@ -468,14 +468,11 @@ MonoBehaviour:
     Test:
       _behaviour: 0
       _conditions:
-      - _target: 0
-        _threshold: 0
-        _thresholdValue: 0
-        _attrAssetRef: {fileID: 0}
-      - _target: 0
-        _threshold: 0
-        _thresholdValue: 0
-        _attrAssetRef: {fileID: 0}
+      - _target: 4
+        _threshold: 3
+        _thresholdValue: 1
+        _attrAssetRef: {fileID: 11400000, guid: fff15a9bf32701b4f918b786539dd6c7, type: 2}
+        _evtAssetRef: {fileID: 11400000, guid: 75f473b4b1ee190428cc418a7571bc7d, type: 2}
 --- !u!1001 &7672171930550659505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,6 +485,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TalesManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1618592260561758774, guid: a0b389eb3a92dd748861a8e8d25f15db, type: 3}
+      propertyPath: _eventsAssets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618592260561758774, guid: a0b389eb3a92dd748861a8e8d25f15db, type: 3}
+      propertyPath: '_eventsAssets.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 75f473b4b1ee190428cc418a7571bc7d, type: 2}
+    - target: {fileID: 1618592260561758774, guid: a0b389eb3a92dd748861a8e8d25f15db, type: 3}
+      propertyPath: '_eventsAssets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 72c0c4323cd263249aa2498d03f89c7c, type: 2}
     - target: {fileID: 3290916936116385761, guid: a0b389eb3a92dd748861a8e8d25f15db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

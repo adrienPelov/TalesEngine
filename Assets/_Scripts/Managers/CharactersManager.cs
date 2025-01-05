@@ -38,6 +38,7 @@ namespace TalesEngine
 			}
 			else
 			{
+				Debug.LogWarning("[CharactersManager] Found duplicate instance on: " + this.gameObject.name);
 				Destroy(gameObject);
 			}
 		}

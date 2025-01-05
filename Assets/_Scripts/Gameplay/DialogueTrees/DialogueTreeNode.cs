@@ -24,6 +24,7 @@ namespace TalesEngine
 
 		[SerializeField]
 		private FConditionalDialog _dialogIntro;
+		public FConditionalDialog DialogIntro => _dialogIntro;
 
 		#region UNITY Methods
 

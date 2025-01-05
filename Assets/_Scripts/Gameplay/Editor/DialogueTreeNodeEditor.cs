@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -80,6 +82,11 @@ namespace TalesEngine
 			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_tests")));
 			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_dialogIntro")));
 
+			Button bValidateTestIntro = new Button();
+			bValidateTestIntro.text = "Validate Test Intro";
+			bValidateTestIntro.clicked += TestDialogueIntro;
+			rootContainer.Add(bValidateTestIntro);
+
 			serializedObject.ApplyModifiedProperties();
 
 			return rootContainer;
@@ -93,6 +100,19 @@ namespace TalesEngine
 		/// DialogueTreeNodeEditor Methods
 		///////////////////////////////////
 
+		private void TestDialogueIntro()
+		{
+			if(Application.isPlaying)
+			{
+				DialogueTreeNode treeNode = target as DialogueTreeNode;
+				GameTest testIntro = treeNode.DialogIntro.Test;
+				FGameTestResult testResult = testIntro.IsValid(CharactersManager.Instance.PlayerCharacters.ToList<Pawn>());
+
+				string pawnName = testResult.TriggerPawn != null ? testResult.TriggerPawn.Name : "NONE";
+
+				Debug.Log("[DTN] TEST: Intro | Valid = " + testResult.bIsValid + " | Pawn = " + pawnName);
+			}
+		}
 
 		#endregion
 	}

@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace TalesEngine
 {
-	public class Character : MonoBehaviour
+	public class Pawn : MonoBehaviour
 	{
 		[SerializeField]
-		private string _name;
+		protected string _name;
 		public string Name => _name;
 		[SerializeField]
-		private List<Attribute> _attributes;
+		protected List<Attribute> _attributes;
 		public List<Attribute> Attributes => _attributes;
 
 		#region UNITY Methods
@@ -18,37 +18,25 @@ namespace TalesEngine
 		/// UNITY Methods
 		///////////////////////////////////
 
-		void Start()
+		protected virtual void Start()
 		{
 
 		}
 
-		void Update()
+		protected virtual void Update()
 		{
 
 		}
 
 		#endregion
 
-		#region Character Methods
+		#region Pawn Methods
 
 		///////////////////////////////////
-		/// Character Methods
+		/// Pawn Methods
 		///////////////////////////////////
 
-		public void InitCharacter(CharacterAsset _charAsset)
-		{
-			_name = _charAsset.CharacterName;
-			_attributes = new List<Attribute>();
-			foreach(FInitialAttribute initAttr in _charAsset.InitialAttributes)
-			{
-				Attribute newAttr = new Attribute();
-				newAttr.InitAttribute(initAttr.AttributeAsset, initAttr.BaseValue);
-				_attributes.Add(newAttr);
-			}
-		}
-
-		private Attribute GetAttribute(AttributeAsset attrAsset)
+		protected Attribute GetAttribute(AttributeAsset attrAsset)
 		{
 			foreach(Attribute attribute in _attributes)
 			{

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace TalesEngine
 {
-	[CustomEditor(typeof(AttributesManager))]
-	public class AttributesManagerEditor : Editor
+	[CustomEditor(typeof(EventsManager))]
+	public class EventsManagerEditor : Editor
 	{
 		public override void OnInspectorGUI()
 		{
@@ -13,7 +13,7 @@ namespace TalesEngine
 
 			serializedObject.Update();
 
-			AttributesManager targetScript = (AttributesManager)target;
+			EventsManager targetScript = (EventsManager)target;
 			SerializedObject scriptSO = new SerializedObject(targetScript);
 
 			GUIStyle labelStyle = new GUIStyle();
@@ -23,13 +23,13 @@ namespace TalesEngine
 
 			Rect areaRect = EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 			EditorGUI.DrawRect(areaRect, new Color(75f / 255f, 75f / 255f, 75f / 255f));
-			
+
 			Rect labelRect = new Rect(areaRect.position.x, areaRect.position.y, areaRect.width, 20f);
 			EditorGUI.DrawRect(labelRect, new Color(35f / 255f, 35f / 255f, 35f / 255f));
 			EditorGUILayout.LabelField("Tools", labelStyle);
-			if(GUILayout.Button("Init Attributes"))
+			if(GUILayout.Button("Init Events"))
 			{
-				InitAttributes(targetScript, scriptSO);
+				InitEvents(targetScript, scriptSO);
 			}
 
 			EditorGUILayout.EndVertical();
@@ -37,30 +37,30 @@ namespace TalesEngine
 			scriptSO.ApplyModifiedProperties();
 		}
 
-		private void InitAttributes(AttributesManager script, SerializedObject scriptSO)
+		private void InitEvents(EventsManager script, SerializedObject scriptSO)
 		{
-			List<AttributeAsset> foundAssets = new List<AttributeAsset>();
+			List<EventAsset> foundAssets = new List<EventAsset>();
 
-			string[] guids = AssetDatabase.FindAssets("", new string[] { script.AttributesFolderPath });
+			string[] guids = AssetDatabase.FindAssets("", new string[] { script.EventsFolderPath });
 
 			if(guids.Length > 0)
 			{
-				List<AttributeAsset> loadedAssets = new List<AttributeAsset>();
+				List<EventAsset> loadedAssets = new List<EventAsset>();
 
 				foreach(string guid in guids)
 				{
-					loadedAssets.Add(AssetDatabase.LoadAssetAtPath<AttributeAsset>(AssetDatabase.GUIDToAssetPath(guid)));
+					loadedAssets.Add(AssetDatabase.LoadAssetAtPath<EventAsset>(AssetDatabase.GUIDToAssetPath(guid)));
 				}
 
 				if(loadedAssets.Count > 0)
 				{
-					scriptSO.FindProperty("_attributeAssets").ClearArray();
+					scriptSO.FindProperty("_eventsAssets").ClearArray();
 					int counter = 0;
-					foreach(AttributeAsset asset in loadedAssets)
+					foreach(EventAsset asset in loadedAssets)
 					{
 						Debug.Log(asset.name + " | " + asset.StringAsset.GetString(Application.isPlaying ? TalesManager.Instance.CurrentLanguage : EGameLanguage.English));
-						scriptSO.FindProperty("_attributeAssets").InsertArrayElementAtIndex(counter);
-						scriptSO.FindProperty("_attributeAssets").GetArrayElementAtIndex(counter).objectReferenceValue = asset;
+						scriptSO.FindProperty("_eventsAssets").InsertArrayElementAtIndex(counter);
+						scriptSO.FindProperty("_eventsAssets").GetArrayElementAtIndex(counter).objectReferenceValue = asset;
 						counter++;
 					}
 				}
