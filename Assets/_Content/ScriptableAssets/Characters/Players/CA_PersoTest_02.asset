@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab681b89344f6d74aa799bdb5017acd6, type: 3}
   m_Name: CA_PersoTest_02
   m_EditorClassIdentifier: 
+  _name: Character 2
   _initialAttributes:
   - AttributeAsset: {fileID: 11400000, guid: fff15a9bf32701b4f918b786539dd6c7, type: 2}
     BaseValue: 0

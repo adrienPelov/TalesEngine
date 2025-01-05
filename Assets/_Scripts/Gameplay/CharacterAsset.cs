@@ -13,6 +13,9 @@ namespace TalesEngine
 	public class CharacterAsset : ScriptableObject
 	{
 		[SerializeField]
+		private string _name;
+		public string CharacterName => _name;
+		[SerializeField]
 		private List<FInitialAttribute> _initialAttributes;
 		public List<FInitialAttribute> InitialAttributes => _initialAttributes;
 	}

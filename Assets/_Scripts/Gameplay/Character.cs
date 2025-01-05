@@ -6,6 +6,9 @@ namespace TalesEngine
 	public class Character : MonoBehaviour
 	{
 		[SerializeField]
+		private string _name;
+		public string Name => _name;
+		[SerializeField]
 		private List<Attribute> _attributes;
 		public List<Attribute> Attributes => _attributes;
 
@@ -35,6 +38,7 @@ namespace TalesEngine
 
 		public void InitCharacter(CharacterAsset _charAsset)
 		{
+			_name = _charAsset.CharacterName;
 			_attributes = new List<Attribute>();
 			foreach(FInitialAttribute initAttr in _charAsset.InitialAttributes)
 			{
