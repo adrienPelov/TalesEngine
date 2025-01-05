@@ -34,7 +34,7 @@ namespace TalesEngine
 			}
 			else
 			{
-				Debug.LogWarning("[AttributesManager] Existing isntance found on: " + this.gameObject.name);
+				Debug.LogWarning("[AttributesManager] Existing instance found on: " + this.gameObject.name);
 				Destroy(this);
 			}
 		}
@@ -59,7 +59,7 @@ namespace TalesEngine
 
 		private void InitManager()
 		{
-			//InitAttributes();
+
 		}
 
 #endregion
