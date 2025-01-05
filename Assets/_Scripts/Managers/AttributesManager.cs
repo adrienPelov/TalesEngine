@@ -12,10 +12,12 @@ namespace TalesEngine
 		[Header("Settings")]
 		[SerializeField]
 		private string _attributesFolderPath = "Assets/_Content/ScriptableAssets/Attributes";
+		public string AttributesFolderPath => _attributesFolderPath;
 
 		[Header("Cached Variables")]
 		[SerializeField]
 		private List<AttributeAsset> _attributeAssets;
+		public List<AttributeAsset > AttributeAssets => _attributeAssets;
 
 		#region UNITY Methods
 
@@ -59,34 +61,6 @@ namespace TalesEngine
 		{
 			//InitAttributes();
 		}
-
-#if UNITY_EDITOR
-
-		public void InitAttributes()
-		{
-			_attributeAssets.Clear();
-
-			//string[] guids = AssetDatabase.FindAssets("t:AttributeAsset", new string[] {_attributesFolderPath});
-			string[] guids = AssetDatabase.FindAssets("", new string[] { _attributesFolderPath });
-
-			if(guids.Length > 0)
-			{
-				List<AttributeAsset> loadedAssets = new List<AttributeAsset>(guids.Length);
-
-				foreach(string guid in guids)
-				{
-					loadedAssets.Add(AssetDatabase.LoadAssetAtPath<AttributeAsset>(AssetDatabase.GUIDToAssetPath(guid)));
-				}
-
-				foreach(AttributeAsset asset in loadedAssets)
-				{
-					Debug.Log(asset.name + " | " + asset.StringAsset.GetString(Application.isPlaying ? TalesManager.Instance.CurrentLanguage : EGameLanguage.English));
-					_attributeAssets.Add(asset);
-				}
-			}
-		}
-
-#endif
 
 #endregion
 	}
