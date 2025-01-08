@@ -19,7 +19,7 @@ namespace TalesEngine
 		{
 			VisualElement rootContainer = new VisualElement();
 
-			string testName = property.propertyPath.Contains("Array") ? "Test[" + property.propertyPath[property.propertyPath.Length - 2] + "]": property.name;
+			string testName = property.displayName.Contains("Element") ? "Test[" + property.displayName[property.displayName.Length - 1] + "]": property.name;
 			Foldout fold = new Foldout();
 			rootContainer.Add(fold);
 			fold.text = testName;
