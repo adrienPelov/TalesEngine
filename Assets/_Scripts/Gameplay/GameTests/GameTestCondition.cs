@@ -82,7 +82,7 @@ namespace TalesEngine
 				Debug.Log("------------> [Condition] On Pawn: " + pawn.Name + " (" + pawnAttrValue + ")");
 				if(IsValidTreshold(pawnAttrValue, (int)_thresholdValue))
 				{
-					Debug.Log("----------------> [Condition] Valid! " + GetConditionTestString(pawnAttrValue));
+					Debug.Log("----------------> [Condition] Valid! " + GetConditionValueString(pawnAttrValue));
 					return new FGameTestResult { bIsValid = true, TriggerPawn = pawn, AttributeValue = pawnAttrValue};
 				}
 			}
@@ -94,7 +94,7 @@ namespace TalesEngine
 			FGameTestResult result = FGameTestResult.GetNullResult();
 			int evtValue = EventsManager.Instance.GetEventValue(_evtAssetRef);
 
-			Debug.Log("--------> [Condition] Checking Event[ " + _evtAssetRef.name + "] " + GetConditionTestString(evtValue) + "?");
+			Debug.Log("--------> [Condition] Checking Event[ " + _evtAssetRef.name + "] " + GetConditionValueString(evtValue) + "?");
 
 			if(IsValidTreshold(evtValue, (int)_thresholdValue))
 			{
@@ -138,11 +138,38 @@ namespace TalesEngine
 			return false;
 		}
 
-		private string GetConditionTestString(int checkedValue)
+		public string GetConditionValueString(int checkedValue)
 		{
 			string thresholdString = GetConditionThresholdString();
 
 			return checkedValue + thresholdString + (int)_thresholdValue;
+		}
+
+		public string GetConditionTestString()
+		{
+			switch(_target)
+			{
+				case EGameTestConditionTarget.Attribute:
+				{
+					return "[Attribute] " + _attrAssetRef.StringAsset.GetString(EGameLanguage.English) + GetConditionThresholdString() + _thresholdValue;
+				}
+				case EGameTestConditionTarget.Event:
+				{
+					return "[Event] " + _evtAssetRef.StringAsset.GetString(EGameLanguage.English) + GetConditionThresholdString() + _thresholdValue;
+				}
+				case EGameTestConditionTarget.Resource:
+				{
+					return "[Resource] ";
+				}
+				case EGameTestConditionTarget.Skill:
+				{
+					return "[Skill] ";
+				}
+				default:
+				{
+					return "[NONE] ";
+				}
+			}
 		}
 
 		private string GetConditionThresholdString()

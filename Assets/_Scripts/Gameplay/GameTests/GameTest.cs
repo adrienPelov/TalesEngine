@@ -115,6 +115,37 @@ namespace TalesEngine
 			return result;
 		}
 
+		public string DBGGetTestString()
+		{
+			string testString = "";
+			string testBHV = "";
+
+			switch(_behaviour)
+			{
+				case EGameTestBehaviour.AND:
+				{
+					testBHV = " && ";
+					break;
+				}
+				case EGameTestBehaviour.OR:
+				{
+					testBHV = " || ";
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+
+			foreach(GameTestCondition condition in _conditions)
+			{
+				testString += condition.GetConditionTestString() + testBHV;
+			}
+
+			return testString;
+		}
+
 		#endregion
 
 
