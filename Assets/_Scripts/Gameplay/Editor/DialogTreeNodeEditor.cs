@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 namespace TalesEngine
 {
-	[CustomEditor(typeof(DialogueTreeNode))]
-	public class DialogueTreeNodeEditor : Editor
+	[CustomEditor(typeof(DialogTreeNode))]
+	public class DialogTreeNodeEditor : Editor
 	{
 		#region UNITY Methods
 
@@ -80,12 +80,13 @@ namespace TalesEngine
 			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditionSolo")));
 			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_conditions")));
 			//rootContainer.Add(new PropertyField(serializedObject.FindProperty("_tests")));
-			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_dialogIntro")));
+			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_testSolo")));
+			rootContainer.Add(new PropertyField(serializedObject.FindProperty("_dialogs")));
 
-			Button bValidateTestIntro = new Button();
-			bValidateTestIntro.text = "Validate Test Intro";
-			bValidateTestIntro.clicked += TestDialogueIntro;
-			rootContainer.Add(bValidateTestIntro);
+			Button bRefreshNames = new Button();
+			bRefreshNames.text = "Refresh Names";
+			bRefreshNames.clicked += RefreshNames;
+			rootContainer.Add(bRefreshNames);
 
 			serializedObject.ApplyModifiedProperties();
 
@@ -100,17 +101,35 @@ namespace TalesEngine
 		/// DialogueTreeNodeEditor Methods
 		///////////////////////////////////
 
-		private void TestDialogueIntro()
+		private void RefreshNames()
 		{
-			if(Application.isPlaying)
+			DialogTreeNode treeNode = target as DialogTreeNode;
+
+			for(int i = 0; i < treeNode.Dialogs.Length; i++)
 			{
-				DialogueTreeNode treeNode = target as DialogueTreeNode;
-				GameTest testIntro = treeNode.DialogIntro.Test;
-				FGameTestResult testResult = testIntro.IsValid(CharactersManager.Instance.PlayerCharacters.ToList<Pawn>());
+				string dlgName = "Dialog[" + i +"]";
+				if(treeNode.Dialogs[i].StringAsset)
+				{
+					treeNode.Dialogs[i].RefreshName(treeNode.Dialogs[i].StringAsset.GetString(EGameLanguage.English));
+					dlgName = treeNode.Dialogs[i].StringAsset.GetString(EGameLanguage.English);
+				}
+				else
+				{
+					Debug.LogError("[DTN]" + treeNode.gameObject.name + " | Error: No StringAsset on " + dlgName);
+				}
 
-				string pawnName = testResult.TriggerPawn != null ? testResult.TriggerPawn.Name : "NONE";
-
-				Debug.Log("[DTN] TEST: Intro | Valid = " + testResult.bIsValid + " | Pawn = " + pawnName);
+				for(int j = 0; j < treeNode.Dialogs[i].Options.Length; j++)
+				{
+					string dlgOptionName = "Option["+j+"]";
+					if(treeNode.Dialogs[i].Options[j].StringAsset)
+					{
+						treeNode.Dialogs[i].Options[j].RefreshName(treeNode.Dialogs[i].Options[j].StringAsset.GetString(EGameLanguage.English));
+					}
+					else
+					{
+						Debug.LogError("[DTN]" + treeNode.gameObject.name + " | Error: No StringAsset on " + dlgName + " -> " + dlgOptionName);
+					}
+				}
 			}
 		}
 
