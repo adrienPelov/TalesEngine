@@ -12,8 +12,7 @@ namespace TalesEngine
 		public DialogTreeNode[] RootNodes => _rootNodes;
 
 		[Header("Cached Variables")]
-		[SerializeField]
-		private bool DBG_bDrawDebug = false;
+		public bool DBG_bDrawDebug = false;
 
 		#region UNITY Methods
 
@@ -33,7 +32,7 @@ namespace TalesEngine
 
 #if UNITY_EDITOR
 
-		private void OnDrawGizmos()
+		/*private void OnDrawGizmos()
 		{
 			if(DBG_bDrawDebug)
 			{
@@ -64,7 +63,7 @@ namespace TalesEngine
 
 				Gizmos.color = baseColor;
 			}
-		}
+		}*/
 
 #endif
 
