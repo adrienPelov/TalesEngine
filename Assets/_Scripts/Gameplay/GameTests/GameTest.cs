@@ -132,15 +132,26 @@ namespace TalesEngine
 					testBHV = " || ";
 					break;
 				}
-				default:
+				case EGameTestBehaviour.NONE:
 				{
+					testBHV = " &!= ";
 					break;
 				}
 			}
 
+			int condIndex = 0;
+
 			foreach(GameTestCondition condition in _conditions)
 			{
-				testString += condition.GetConditionTestString() + testBHV;
+				if(condIndex < _conditions.Count - 1)
+				{
+					testString += condition.GetConditionTestString() + testBHV;
+				}
+				else
+				{
+					testString += condition.GetConditionTestString();
+				}
+				condIndex++;
 			}
 
 			return testString;
