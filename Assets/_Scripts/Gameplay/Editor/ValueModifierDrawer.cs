@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace TalesEngine
 {
-	[CustomPropertyDrawer(typeof(AttributeModifier))]
-	public class AttributeModifierDrawer : PropertyDrawer
+	//[CustomPropertyDrawer(typeof(ValueModifier))]
+	public class ValueModifierDrawer : PropertyDrawer
 	{
-		AttributeModifier _targetScript;
+		ValueModifier _targetScript;
 		GUIStyle _styleTextLabel;
 		float _styleTextLabelWidth;
 		GUIStyle _styleTextValue;

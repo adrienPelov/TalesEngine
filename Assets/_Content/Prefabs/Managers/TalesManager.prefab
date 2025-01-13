@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3290916936116385761}
   - component: {fileID: 4190912132732814235}
+  - component: {fileID: 6043738506799424663}
   - component: {fileID: 5960999839637804160}
   - component: {fileID: 1618592260561758774}
   - component: {fileID: 7757789244880103502}
@@ -48,6 +49,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLanguage: 0
+--- !u!114 &6043738506799424663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92644976714661138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9b261faba22f4418852ddbd93e3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bUpdateRealTime: 0
+  _sessionTimeStart: 0
+  _sessionTimeElapsed: 0
 --- !u!114 &5960999839637804160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventsFolderPath: Assets/_Content/ScriptableAssets/Events
   _eventsAssets: []
-  _eventsValues: 
+  _eventsValues: []
 --- !u!114 &7757789244880103502
 MonoBehaviour:
   m_ObjectHideFlags: 0

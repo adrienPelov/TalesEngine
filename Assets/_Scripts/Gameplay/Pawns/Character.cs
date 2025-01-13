@@ -5,6 +5,10 @@ namespace TalesEngine
 {
 	public class Character : Pawn
 	{
+		[Header("DEBUG")]
+		[SerializeField]
+		public FValueModifierSettings DBG_modifierSettings;
+
 		#region UNITY Methods
 
 		///////////////////////////////////
